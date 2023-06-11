@@ -1,0 +1,41 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+
+  border-radius: 2rem;
+  margin: 2%;
+}
+
+header {
+  border-radius: 2rem;
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.movies {
+  padding: 2rem;
+  width: 60vw;
+  list-style: none;
+  margin: 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  align-items: last baseline;
+  text-align: center;
+}
