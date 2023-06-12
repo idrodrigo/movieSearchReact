@@ -22,9 +22,28 @@ header {
 
 form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
+}
+
+form input {
+  margin: 0;
+}
+
+.search {
+  display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sort {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
 }
 
 .movies {

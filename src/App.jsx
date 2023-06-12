@@ -40,13 +40,14 @@ export default function App () {
       <header>
           <h1>Movies Search</h1>
         <form className='form' onSubmit={handleSubmit}>
-
+<div className='search'>
           <input onChange={handleChange} style={{
             border: `1px solid ${error ? 'red' : 'transparent'}`
           }} value={search} name='query' ref={inputRef} placeholder='Pokemon, Avengers, ...'/>
 
           <button type='submit'>Search</button>
-
+          </div>
+          <div className='sort'>
           <label>Sort by:</label>
       <select value={selectedSortOption} onChange={handleSortChange}>
         <option value="">None</option>
@@ -56,7 +57,7 @@ export default function App () {
           </option>
         ))}
       </select>
-
+      </div>
         </form>
         {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
         </header>
