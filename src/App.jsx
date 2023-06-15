@@ -69,7 +69,7 @@ export default function App () {
         <main>
           {/* peliculas */}
           {!search
-            ? <><p>Search a movie!</p> <h3 className='fav'>Favoritas:</h3> <Movies movies={ mockMappedMovies }/> </>
+            ? <><p>Search a movie!</p> <h3 className='fav'>Favorites:</h3> <Movies movies={ mockMappedMovies }/> </>
             : loading ? <> <Loader /> </> : <Movies movies={movies}/>}
           {}
 
