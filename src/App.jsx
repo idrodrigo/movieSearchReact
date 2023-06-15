@@ -3,6 +3,8 @@ import './App.css'
 import { Movies } from './components/Movies'
 import { useMovies } from './hooks/useMovies'
 import { useSearch } from './hooks/useSearch'
+import Loader from './components/Loader'
+import { mockMovies } from './mocks/mockMovies'
 
 const sortOptions = [
   { value: 'title', label: 'Title' },
@@ -15,6 +17,8 @@ export default function App () {
   const [selectedSortOption, setSelectedSortOption] = useState('')
   const { search, updateSearch, error } = useSearch()
   const { movies, getMovies, loading, debouncedGetMovies } = useMovies({ search, selectedSortOption })
+
+  const mockMappedMovies = mockMovies()
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -43,7 +47,7 @@ export default function App () {
 <div className='search'>
           <input onChange={handleChange} style={{
             border: `1px solid ${error ? 'red' : 'transparent'}`
-          }} value={search} name='query' ref={inputRef} placeholder='Pokemon, Avengers, ...'/>
+          }} value={search} name='query' ref={inputRef} placeholder='Spider man, Pokemon, Avengers, ...'/>
 
           <button type='submit'>Search</button>
           </div>
@@ -65,8 +69,8 @@ export default function App () {
         <main>
           {/* peliculas */}
           {!search
-            ? <p>Search for a movie!</p>
-            : loading ? <p>Loading...</p> : <Movies movies={movies}/>}
+            ? <><p>Search a movie!</p> <h3 className='fav'>Favoritas:</h3> <Movies movies={ mockMappedMovies }/> </>
+            : loading ? <> <Loader /> </> : <Movies movies={movies}/>}
           {}
 
         </main>

@@ -1,11 +1,19 @@
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid #00FF66;
 
   border-radius: 2rem;
   margin: 2%;
+
+  min-height: 10rem;
+
+
+  & .fav {
+    color: #00FF66;
+  }
 }
 
 header {
@@ -15,9 +23,13 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid #00FF66;
   padding-bottom: 1rem;
   padding-top: 1rem;
+
+  & h1 {
+    color: #00FF66;
+  }
 }
 
 form {
@@ -57,4 +69,54 @@ form input {
   gap: 3rem;
   align-items: last baseline;
   text-align: center;
+
+  & h3,
+  p {
+    display: none;
+    position: absolute;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    text-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  & h3 {
+    top: 5%;
+    left: 0;
+  }
+
+  & p {
+    top: 75%;
+    left: 0%
+  }
+}
+
+.movie {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  color: black;
+  padding: 0.5rem;
+  box-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  & img {
+    border-radius: 0%;
+    min-height: 330px;
+    max-height: 330px;
+  }
+}
+
+.movie:hover {
+  position: relative;
+  scale: 1.01;
+
+  & h3,
+  p {
+    display: block;
+  }
+
 }
