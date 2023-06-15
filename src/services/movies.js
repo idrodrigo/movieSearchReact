@@ -1,10 +1,10 @@
 const API_KEY = '336d4a9d'
 
-export async function searchMovies ({ search }) {
+export async function searchMovies ({ search }, { signal }) {
   if (search === '') return null
 
   try {
-    const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`, { signal })
     const json = await response.json()
     const movies = json.Search
     const mappedMovies = movies?.map(movie => {

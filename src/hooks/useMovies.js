@@ -7,14 +7,24 @@ export function useMovies ({ search, selectedSortOption }) {
   const [errorMovies, setErrorMovies] = useState(null)
   const [loading, setLoading] = useState(false)
   const prevSearch = useRef({ search })
+  const abortController = useRef(null)
 
   const getMovies = useCallback(async ({ search }) => {
     if (prevSearch.current === search) return
+
+    if (abortController.current) {
+      abortController.current.abort() // Cancelar la búsqueda anterior
+    }
+
     try {
       setLoading(true)
       setErrorMovies(null)
       prevSearch.current = search
-      const newMovies = await searchMovies({ search })
+
+      abortController.current = new AbortController() // Crear una nueva instancia de AbortController
+      const signal = abortController.current.signal // Obtener la señal de cancelación
+
+      const newMovies = await searchMovies({ search }, { signal })
       setMovies(newMovies)
     } catch (error) {
       setErrorMovies(error.message)
