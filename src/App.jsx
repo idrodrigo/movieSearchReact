@@ -1,10 +1,13 @@
-import { useRef, useState } from 'react'
 import './App.css'
+
+import { useRef, useState } from 'react'
 import { Movies } from './components/Movies'
 import { useMovies } from './hooks/useMovies'
 import { useSearch } from './hooks/useSearch'
 import Loader from './components/Loader'
 import { mockMovies } from './mocks/mockMovies'
+import { FavoritesProvider } from './context/favorites'
+import { Favorites } from './components/Favorites'
 
 const sortOptions = [
   { value: 'title', label: 'Title' },
@@ -41,6 +44,8 @@ export default function App () {
 
   return (
     <>
+    <FavoritesProvider>
+    <Favorites />
       <header>
           <h1>Movies Search</h1>
         <form className='form' onSubmit={handleSubmit}>
@@ -74,6 +79,7 @@ export default function App () {
           {}
 
         </main>
+        </FavoritesProvider>
     </>
   )
 }
