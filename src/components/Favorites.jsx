@@ -18,6 +18,7 @@ function FavItem (movie) {
 export function Favorites () {
   const cartCheckBoxId = useId()
   const { clearFav, favorites } = useFavorites()
+  const hasMovies = favorites?.length > 0
 
   return (
         <>
@@ -29,15 +30,19 @@ export function Favorites () {
             <aside className='cart' >
                 <ul className='movies'>
                     {
-                    favorites.map((movie) => {
-                      return (
+                      hasMovies
+                        ? favorites.map((movie) => {
+                          return (
 
                         <FavItem
                         movie={favorites}
                         key={movie.id}
                         {...movie} />
-                      )
-                    })
+                          )
+                        })
+                        : <h6 style={{ color: '#00FF66' }} >
+                      dobble click on movie to add to favorites
+                    </h6>
                 }
                 </ul>
 

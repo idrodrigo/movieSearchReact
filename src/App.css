@@ -3,7 +3,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #00FF66;
+  /* border: 2px solid #00FF66; */
 
   border-radius: 2rem;
   margin: 2%;
@@ -17,14 +17,14 @@ main {
 }
 
 header {
-  border-radius: 2rem;
+  /* border-radius: 2rem; */
   margin: 2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #00FF66;
-  padding-bottom: 1rem;
+  border-bottom: 2px solid #00FF66;
+  padding-bottom: 2rem;
   padding-top: 1rem;
 
   & h1 {
@@ -34,10 +34,21 @@ header {
 
 form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 4rem;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    padding-bottom: 0.5rem;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 form input {
@@ -69,6 +80,7 @@ form input {
   gap: 3rem;
   align-items: last baseline;
   text-align: center;
+  justify-items: center;
 
   & h3,
   p {
@@ -100,8 +112,9 @@ form input {
   padding: 0.5rem;
   box-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
   cursor: pointer;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 10px;
+  max-width: 250px;
 
   & img {
     border-radius: 0%;
