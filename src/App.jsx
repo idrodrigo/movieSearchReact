@@ -1,6 +1,6 @@
 import './App.css'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Movies } from './components/Movies'
 import { useMovies } from './hooks/useMovies'
 import { useSearch } from './hooks/useSearch'
@@ -42,6 +42,22 @@ export default function App () {
     setSelectedSortOption(selectedValue)
   }
 
+  useEffect(() => {
+    search
+      ? document.title = `You've Searched ${search}`
+      : document.title = 'Movies Search'
+
+    const favicon = document.getElementById('favicon')
+
+    search
+      ? favicon.href = './popcorn.svg'
+      : favicon.href = './movies.svg'
+
+    // return () => {
+    //   second
+    // }
+  }, [search])
+
   return (
     <>
     <FavoritesProvider>
@@ -74,7 +90,7 @@ export default function App () {
         <main>
           {/* peliculas */}
           {!search
-            ? <><p>Search a movie!</p> <h3 className='fav'>Favorites:</h3> <Movies movies={ mockMappedMovies }/> </>
+            ? <><p>Search a movie!</p> <h5 className='favo'>Our Choice:</h5> <Movies movies={ mockMappedMovies }/> </>
             : loading ? <> <Loader /> </> : <Movies movies={movies}/>}
           {}
 
