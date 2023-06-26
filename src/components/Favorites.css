@@ -1,78 +1,17 @@
-.fav {
-    display: none
+.main-fav {
+    min-height: 75vh;
 }
 
-.cart {
-    background: #0f0f0f;
-    display: none;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    width: 50%;
-    z-index: 1;
-}
-
-.cart img {
-    aspect-ratio: 16/9;
-    width: 100%;
-}
-
-.cart li {
-    border-bottom: 1px solid #444;
-    padding-bottom: 16px;
-}
-
-.cart-button {
-    align-items: center;
-    background: #00FF66;
-    border-radius: 9999px;
-    cursor: pointer;
-    display: flex;
-    height: 32px;
-    justify-content: center;
-    padding: 4px;
-    position: absolute;
-    right: 16px;
-    top: 16px;
-    transition: all .3s ease;
-    width: 32px;
-    z-index: 9999;
-}
-
-.cart-button:hover {
-    scale: 1.2;
-}
-
-.cart-button~input:checked~.cart {
-    height: 100%;
-    display: block;
-}
-
-.cart .movies {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 3rem;
-    align-items: last baseline;
+.noFavorites {
     text-align: center;
 }
 
-
-
-@media only screen and (max-width: 600px) {
-    .cart .movie {
-        min-width: 10rem;
-        max-width: 10rem;
-        min-height: 15rem;
-        max-height: 15rem;
-    }
-
-    .cart .movie img {
-        min-height: 14rem;
-        max-height: 14rem;
-        object-fit: cover;
-    }
-
+svg {
+    margin: 2rem;
 }
+
+.delete-fav {
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 600px) {}

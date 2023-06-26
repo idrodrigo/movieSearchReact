@@ -1,101 +1,43 @@
 import './App.css'
 
-import { useEffect, useRef, useState } from 'react'
-import { Movies } from './components/Movies'
-import { useMovies } from './hooks/useMovies'
-import { useSearch } from './hooks/useSearch'
-import Loader from './components/Loader'
-import { mockMovies } from './mocks/mockMovies'
-import { FavoritesProvider } from './context/favorites'
-import { Favorites } from './components/Favorites'
+import { Suspense, lazy } from 'react'
+// import { Router, Route } from 'rho-router'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-const sortOptions = [
-  { value: 'title', label: 'Title' },
-  { value: 'year', label: 'Year' }
-]
+import { FavoritesProvider } from './context/favorites'
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+import Loader from './components/Loader'
+
+const LazyHomePage = lazy(() => import('./components/Home'))
+const LazyFavoritesPage = lazy(() => import('./components/Favorites'))
+const LazyPage404 = lazy(() => import('./components/Page404'))
 
 export default function App () {
-  const inputRef = useRef()
-  // const [query, setQuery] = useState('')
-  const [selectedSortOption, setSelectedSortOption] = useState('')
-  const { search, updateSearch, error } = useSearch()
-  const { movies, getMovies, loading, debouncedGetMovies } = useMovies({ search, selectedSortOption })
-
-  const mockMappedMovies = mockMovies()
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    // const { query } = Object.fromEntries(new window.FormData(event.target))
-    // console.log({ search })
-    getMovies({ search })
-  }
-
-  const handleChange = (event) => {
-    const newQuery = event.target.value
-    if (newQuery.startsWith(' ')) return
-    updateSearch(newQuery)
-    debouncedGetMovies({ search: newQuery })
-  }
-
-  const handleSortChange = (event) => {
-    const selectedValue = event.target.value
-    setSelectedSortOption(selectedValue)
-  }
-
-  useEffect(() => {
-    search
-      ? document.title = `You've Searched ${search}`
-      : document.title = 'Movies Search'
-
-    const favicon = document.getElementById('favicon')
-
-    search
-      ? favicon.href = './popcorn.svg'
-      : favicon.href = './movies.svg'
-
-    // return () => {
-    //   second
-    // }
-  }, [search])
-
   return (
     <>
-    <FavoritesProvider>
-    <Favorites />
-      <header>
-          <h1>Movies Search</h1>
-        <form className='form' onSubmit={handleSubmit}>
-<div className='search'>
-          <input onChange={handleChange} style={{
-            border: `1px solid ${error ? 'red' : 'transparent'}`
-          }} value={search} name='query' ref={inputRef} placeholder='Spider man, Pokemon, Avengers, ...'/>
+    <main>
+      <Suspense fallback={<Loader />}>
+        <FavoritesProvider>
+          <BrowserRouter>
+            <Nav />
+            <Routes>
+              <Route path='/movieSearchReact/' element={<LazyHomePage />} />
+              <Route path='/movieSearchReact/favorites' element={<LazyFavoritesPage />} />
+              <Route path='/*' element={<LazyPage404 />} />
+            </Routes>
+          </BrowserRouter>
 
-          <button type='submit'>Search</button>
-          </div>
-          <div className='sort'>
-          <label>Sort by:</label>
-      <select value={selectedSortOption} onChange={handleSortChange}>
-        <option value="">None</option>
-        {sortOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      </div>
-        </form>
-        {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
-        </header>
+          {/* <Nav />
+          <Router defaultComponent={lazyPage404}>
+            <Route path='/movieSearchReact/' Component={lazyHomePage} />
+            <Route path='/movieSearchReact/favorites' Component={lazyFavoritesPage} />
+          </Router> */}
 
-        <main>
-          {/* peliculas */}
-          {!search
-            ? <><p>Search a movie!</p> <h5 className='favo'>Our Choice:</h5> <Movies movies={ mockMappedMovies }/> </>
-            : loading ? <> <Loader /> </> : <Movies movies={movies}/>}
-          {}
-
-        </main>
         </FavoritesProvider>
+        <Footer />
+      </Suspense>
+    </main>
     </>
   )
 }
