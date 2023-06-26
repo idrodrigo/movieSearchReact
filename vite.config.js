@@ -14,5 +14,5 @@ export default defineConfig({
       }
     ]
   },
-  base: '/movieSearchReact/'
+  base: 'https://idrodrigo.github.io/movieSearchReact/'
 })
