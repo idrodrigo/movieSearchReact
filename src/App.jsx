@@ -22,8 +22,8 @@ export default function App () {
           <BrowserRouter>
             <Nav />
             <Routes>
-              <Route path='/movieSearchReact/' element={<LazyHomePage />} />
-              <Route path='/movieSearchReact/favorites' element={<LazyFavoritesPage />} />
+              <Route path='/' element={<LazyHomePage />} />
+              <Route path='/favorites' element={<LazyFavoritesPage />} />
               <Route path='/*' element={<LazyPage404 />} />
             </Routes>
           </BrowserRouter>

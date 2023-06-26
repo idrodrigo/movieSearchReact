@@ -7,7 +7,7 @@ function Nav () {
   return (
     <nav>
         <div className='logo'>
-        <NavLink to='/movieSearchReact/'>
+        <NavLink to='/'>
             <img src='./popcorn.svg' alt='movies' />
             <h1>Movies Search</h1>
         </NavLink>
@@ -15,14 +15,14 @@ function Nav () {
         </div>
 
          <div className='links'>
-        <NavLink to='/movieSearchReact/'
+        <NavLink to='/'
         className={({ isActive }) => isActive ? 'activo' : null}>
             Home
         </NavLink>
 
         {
             list.map(link =>
-            <NavLink to={`/movieSearchReact/${link}`} key={link}
+            <NavLink to={`/${link}`} key={link}
             className={({ isActive }) => isActive ? 'activo' : null}>
                 {link}
             </NavLink>)
