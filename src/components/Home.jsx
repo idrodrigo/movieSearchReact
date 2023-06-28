@@ -9,6 +9,7 @@ import { Movies } from '../components/Movies'
 import { mockMovies } from '../mocks/mockMovies'
 
 import './Home.css'
+import Marquee from './Marquee'
 
 const sortOptions = [
   { value: 'title', label: 'Title' },
@@ -59,38 +60,40 @@ export default function Home () {
     // }
   }, [search])
   return (
-      <>
-        <header>
-          <form className='form' onSubmit={handleSubmit}>
-            <div className='search'>
+    <>
+      <header>
+        <Marquee />
+        <form className='form' onSubmit={handleSubmit}>
+          <div className='search'>
             <input onChange={handleChange} style={{
               border: `1px solid ${error ? 'red' : 'transparent'}`
-            }} value={search} name='query' ref={inputRef} placeholder='Spider man, Pokemon, Avengers, ...'/>
+            }} value={search} name='query' ref={inputRef} placeholder='Spider man, Pokemon, Avengers, ...' />
 
-              <button type='submit'>Search</button>
-            </div>
-            <div className='sort'>
+            <button type='submit'>Search</button>
+          </div>
+          <div className='sort'>
             <label>Sort by:</label>
             <select value={selectedSortOption} onChange={handleSortChange}>
-            <option value="">None</option>
-            {sortOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-            ))}
+              <option value="">None</option>
+              {sortOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
             </select>
-            </div>
-          </form>
+          </div>
+        </form>
 
-          {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
-        </header>
+        {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
 
-        <section className='main-home'>
-            {/* peliculas */}
-            {!search
-              ? <><p>Search a movie!</p> <h4 className='favo'>Our Choice:</h4> <Movies movies={ mockMappedMovies }/> </>
-              : loading ? <> <Loader /> </> : <Movies movies={movies}/>}
-        </section>
-      </>
+      </header>
+
+      <section className='main-home'>
+        {/* peliculas */}
+        {!search
+          ? <><p>Search a movie!</p> <h4 className='favo'>Our Choice:</h4> <Movies movies={mockMappedMovies} /> </>
+          : loading ? <> <Loader /> </> : <Movies movies={movies} />}
+      </section>
+    </>
   )
 }

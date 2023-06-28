@@ -1,0 +1,6 @@
+.marquee {
+    padding-top: 1vh;
+    color: var(--links);
+    display: flex;
+    gap: 10rem;
+}
