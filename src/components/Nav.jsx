@@ -5,6 +5,7 @@ import './Nav.css'
 function Nav () {
   const list = ['favorites']
   return (
+
     <nav>
         <div className='logo'>
         <NavLink to='/'>

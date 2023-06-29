@@ -74,6 +74,7 @@ form input {
 }
 
 .movies {
+  cursor: default;
   padding: 2rem;
   width: 60vw;
   list-style: none;
@@ -85,9 +86,25 @@ form input {
   align-items: last baseline;
   text-align: center;
   justify-items: center;
+  cursor: default;
+
+
+  & button {
+    box-shadow: none;
+    border: 0;
+    padding: 3px 25px 3px 25px;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    background-color: white;
+    border-radius: 0.5rem;
+    /* color: var(--links); */
+    /* opacity: 0.5; */
+  }
 
   & h3,
   p {
+    cursor: default;
     display: none;
     position: absolute;
     color: white;
@@ -110,6 +127,7 @@ form input {
 }
 
 .movie {
+  cursor: default;
   background-color: white;
   position: relative;
   transition: all 0.2s ease-in-out;
@@ -122,6 +140,7 @@ form input {
   max-width: 250px;
 
   & img {
+    cursor: default;
     border-radius: 0%;
     min-height: 330px;
     max-height: 330px;

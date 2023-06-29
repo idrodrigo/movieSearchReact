@@ -1,10 +1,10 @@
 // import { useId } from 'react'
 import { lazy } from 'react'
-import { FavIcon, RemoveFromFavIcon } from './Icons.jsx'
-import { useFavorites } from '../hooks/useFavorites'
+import { FavIcon, RemoveFromFavIcon } from '../Icons.jsx'
+import { useFavorites } from '../../hooks/useFavorites.js'
 import './Favorites.css'
 
-const ListOfMovies = lazy(() => import('./ListOfMovies'))
+const ListOfMovies = lazy(() => import('../ListOfMovies.jsx'))
 
 function NoFavorites () {
   return (

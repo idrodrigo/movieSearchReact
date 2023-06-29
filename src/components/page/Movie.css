@@ -1,0 +1,42 @@
+.main-movie {
+    height: 75vh;
+}
+
+span {
+    display: block;
+}
+
+
+
+.movie-card {
+    font: 14px/22px "Lato", Arial, sans-serif;
+    color: #A9A8A3;
+    padding: 2rem 10rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rated {
+    margin-left: 1rem;
+    display: inline;
+    background-color: #a28804;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 10px;
+}
+
+.title1 {
+    color: var(--links);
+    font-size: 20px;
+}
+
+.urls {
+    display: flex;
+    gap: 2rem;
+}

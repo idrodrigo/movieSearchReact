@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { useMovies } from '../hooks/useMovies'
-import { useSearch } from '../hooks/useSearch'
+import { useMovies } from '../../hooks/useMovies'
+import { useSearch } from '../../hooks/useSearch'
 
-import Loader from '../components/Loader'
-import { Movies } from '../components/Movies'
+import Loader from '../Loader'
+import { Movies } from '../Movies'
 
-import { mockMovies } from '../mocks/mockMovies'
+import { mockMovies } from '../../mocks/mockMovies'
 
 import './Home.css'
-import Marquee from './Marquee'
+import Marquee from '../Marquee'
 
 const sortOptions = [
   { value: 'title', label: 'Title' },

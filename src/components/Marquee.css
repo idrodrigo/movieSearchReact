@@ -3,4 +3,5 @@
     color: var(--links);
     display: flex;
     gap: 10rem;
+    width: 100vw;
 }

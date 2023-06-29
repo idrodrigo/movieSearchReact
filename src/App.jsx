@@ -2,16 +2,36 @@ import './App.css'
 
 import { Suspense, lazy } from 'react'
 // import { Router, Route } from 'rho-router'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, RouterProvider, createBrowserRouter, HashRouter } from 'react-router-dom'
 
 import { FavoritesProvider } from './context/favorites'
-import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
+import Nav from './components/Nav'
 
-const LazyHomePage = lazy(() => import('./components/Home'))
-const LazyFavoritesPage = lazy(() => import('./components/Favorites'))
-const LazyPage404 = lazy(() => import('./components/Page404'))
+const LazyHomePage = lazy(() => import('./components/page/Home'))
+const LazyFavoritesPage = lazy(() => import('./components/page/Favorites'))
+const LazyPage404 = lazy(() => import('./components/page/Page404'))
+const LazyMoviePage = lazy(() => import('./components/page/Movie'))
+
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <LazyHomePage />
+//   },
+//   {
+//     path: '/favorites',
+//     element: <LazyFavoritesPage />
+//   },
+//   {
+//     path: '/movie/:imdbID',
+//     element: <Movie />
+//   },
+//   {
+//     path: '*',
+//     element: <LazyPage404 />
+//   }
+// ])
 
 export default function App () {
   return (
@@ -19,14 +39,30 @@ export default function App () {
     <main>
       <Suspense fallback={<Loader />}>
         <FavoritesProvider>
-          <BrowserRouter>
-            <Nav />
+
+          <HashRouter>
+          <Nav />
             <Routes>
               <Route path='/' element={<LazyHomePage />} />
               <Route path='/favorites' element={<LazyFavoritesPage />} />
+              <Route path='/movie/:imdbID' element={<LazyMoviePage />} />
               <Route path='/*' element={<LazyPage404 />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
+
+          {/* <RouterProvider router={router} /> */}
+
+          {/* <BrowserRouter>
+            <Nav />
+            <Routes>
+              <HashRouter>
+              <Route path='/' element={<LazyHomePage />} />
+              <Route path='/favorites' element={<LazyFavoritesPage />} />
+              <Route path='/movie/:imdbID' element={<Movie />} />
+              <Route path='/*' element={<LazyPage404 />} />
+              </HashRouter>
+            </Routes>
+          </BrowserRouter> */}
 
           {/* <Nav />
           <Router defaultComponent={lazyPage404}>
