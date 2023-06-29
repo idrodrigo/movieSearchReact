@@ -29,7 +29,6 @@ export default function Movie () {
             {movie
               ? <section className='main-movie'>
                     <NavLink className='return' to={'/'}>Back to home</NavLink>
-                    <button >add fav</button>
                     <div key={movie.imdbID}>
                         <div>
                             <div className="movie-card">
