@@ -12,67 +12,6 @@ section {
   }
 }
 
-header {
-  min-height: 10vh;
-  /* border-radius: 2rem; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #f2f2f2;
-
-
-  & h1 {
-    color: var(--links);
-  }
-}
-
-form {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-
-  & button {
-    background-color: var(--links);
-    padding: 3px 25px 3px 25px;
-    font-weight: bold;
-    color: white;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  header {
-    padding-bottom: 0.5rem;
-  }
-
-  form {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-form input {
-  margin: 0;
-}
-
-.search {
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.sort {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-
-}
-
 .movies {
   cursor: default;
   padding: 2rem;
@@ -159,12 +98,15 @@ form input {
 }
 
 footer {
-  height: 15vh;
+  min-height: 15vh;
   background-color: rgb(210, 243, 255);
   border-top: 2px solid #E2E8F0;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   & p {
-    padding-top: 3rem;
+    font-weight: bold;
   }
 }

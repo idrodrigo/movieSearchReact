@@ -1,3 +1,74 @@
 .main-home {
     min-height: 65vh;
 }
+
+
+header {
+    min-height: 10vh;
+    background-color: #f2f2f2;
+
+
+    & h1 {
+        color: var(--links);
+    }
+}
+
+
+form {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    padding: 0px 30px 0px 30px;
+
+    & button {
+        background-color: var(--links);
+        padding: 3px 25px 3px 25px;
+        font-weight: bold;
+        color: white;
+    }
+
+    & .error {
+        text-align: center;
+        margin: 0;
+    }
+
+}
+
+
+
+.sort {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input-search {
+    display: block;
+
+
+    & input {
+
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    form {
+        display: flex;
+        justify-content: center;
+        padding: 0 25% 0 25%;
+        /* gap: 2rem; */
+        align-items: center;
+        flex-wrap: wrap;
+
+        & .input-search {
+            /* flex-grow: 1; */
+            flex-basis: 70%;
+        }
+
+        & .sort {
+            flex-basis: 30%;
+        }
+    }
+}

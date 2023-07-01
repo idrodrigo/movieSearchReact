@@ -44,6 +44,7 @@ export default function App () {
           <Nav />
             <Routes>
               <Route path='/' element={<LazyHomePage />} />
+              <Route path='/:search' element={<LazyHomePage />} />
               <Route path='/favorites' element={<LazyFavoritesPage />} />
               <Route path='/movie/:imdbID' element={<LazyMoviePage />} />
               <Route path='/*' element={<LazyPage404 />} />

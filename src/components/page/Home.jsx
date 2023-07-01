@@ -64,12 +64,12 @@ export default function Home () {
       <header>
         <Marquee />
         <form className='form' onSubmit={handleSubmit}>
-          <div className='search'>
+          <div className='input-search'>
             <input onChange={handleChange} style={{
               border: `1px solid ${error ? 'red' : 'transparent'}`
             }} value={search} name='query' ref={inputRef} placeholder='Spider man, Pokemon, Avengers, ...' />
 
-            <button type='submit'>Search</button>
+            {/* <button type='submit'>Search</button> */}
           </div>
           <div className='sort'>
             <label>Sort by:</label>
@@ -82,9 +82,8 @@ export default function Home () {
               ))}
             </select>
           </div>
+          {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
         </form>
-
-        {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
 
       </header>
 
