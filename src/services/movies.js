@@ -33,15 +33,21 @@ export async function searchMovie (imdbID) {
     const json = await response.json()
     const movie = json
 
-    //   const mappedMovies = movie?.map(movie => {
-    //     return {
-    //       id: movie.imdbID,
-    //       title: movie.Title,
-    //       year: movie.Year,
-    //       poster: movie.Poster
-    //     }
-    //   })
-    return movie
+    const mappedMovies = movie && {
+      id: movie.imdbID,
+      title: movie.Title,
+      year: movie.Year,
+      poster: movie.Poster,
+      rated: movie.Rated,
+      imdbRating: movie.imdbRating,
+      gen: movie.Genre,
+      plot: movie.Plot,
+      director: movie.Director,
+      actors: movie.Actors,
+      writer: movie.Writer,
+      tomato: movie.tomatoURL
+    }
+    return mappedMovies
   } catch (error) {
     throw new Error('Error searching movie')
   }

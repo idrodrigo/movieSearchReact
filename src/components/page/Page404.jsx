@@ -1,12 +1,10 @@
 // import { Link } from 'rho-router'
 import { NavLink } from 'react-router-dom'
 import './Page404.css'
-import Nav from '../Nav'
 
 export default function Page404 () {
   return (
     <>
-    <Nav />
         <section className='main-404'>
             {/* <Link className='return' to={'/movieSearchReact/'}>Back to home</Link> */}
             <NavLink className='return' to={'/'}>Back to home</NavLink>

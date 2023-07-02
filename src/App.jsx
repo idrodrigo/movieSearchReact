@@ -40,7 +40,6 @@ export default function App () {
       <Suspense fallback={<Loader />}>
         <FavoritesProvider>
 
-          <HashRouter>
           <Nav />
             <Routes>
               <Route path='/' element={<LazyHomePage />} />
@@ -49,7 +48,6 @@ export default function App () {
               <Route path='/movie/:imdbID' element={<LazyMoviePage />} />
               <Route path='/*' element={<LazyPage404 />} />
             </Routes>
-          </HashRouter>
 
           {/* <RouterProvider router={router} /> */}
 
