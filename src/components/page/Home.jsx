@@ -10,6 +10,7 @@ import { mockMovies } from '../../mocks/mockMovies'
 
 import './Home.css'
 import Marquee from '../Marquee'
+import { styled } from 'styled-components'
 
 const sortOptions = [
   { value: 'title', label: 'Title' },
@@ -17,13 +18,12 @@ const sortOptions = [
 ]
 
 export default function Home () {
-  const inputRef = useRef()
-  // const [query, setQuery] = useState('')
-  const [selectedSortOption, setSelectedSortOption] = useState('')
   const { search, updateSearch, error } = useSearch()
+  const [selectedSortOption, setSelectedSortOption] = useState('')
   const { movies, getMovies, loading, debouncedGetMovies } = useMovies({ search, selectedSortOption })
-
   const mockMappedMovies = mockMovies()
+
+  const inputRef = useRef()
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -43,7 +43,6 @@ export default function Home () {
     const selectedValue = event.target.value
     setSelectedSortOption(selectedValue)
   }
-
   useEffect(() => {
     search
       ? document.title = `You've Searched ${search}`
@@ -59,11 +58,12 @@ export default function Home () {
     //   second
     // }
   }, [search])
+
   return (
     <>
-      <header>
+      <HeaderHome>
         <Marquee />
-        <form className='form' onSubmit={handleSubmit}>
+        <FormSearch className='form' onSubmit={handleSubmit}>
           <div className='input-search'>
             <input onChange={handleChange} style={{
               border: `1px solid ${error ? 'red' : 'transparent'}`
@@ -83,9 +83,8 @@ export default function Home () {
             </select>
           </div>
           {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
-        </form>
-
-      </header>
+        </FormSearch>
+      </HeaderHome>
 
       <section className='main-home'>
         {/* peliculas */}
@@ -96,3 +95,49 @@ export default function Home () {
     </>
   )
 }
+
+const FormSearch = styled.form`
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    padding: 0px 30px 0px 30px;
+
+    .error {
+        text-align: center;
+        margin: 0;
+    }
+
+    .input-search {
+      display: block;
+      input {
+        max-width: 100%;
+        width: 100%;
+      }
+      @media only screen and (min-width: 600px) {
+        flex-grow: 1;
+      }
+    }
+
+    .sort {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    align-items: center;
+    }
+
+    @media only screen and (min-width: 600px) {
+        display: flex;
+        justify-content: center;
+        padding: 0 25% 0 25%;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+`
+
+const HeaderHome = styled.header`
+    min-height: 10vh;
+    background-color: #f2f2f2;
+    h1 {
+        color: var(--links);
+    }
+`

@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, RouterProvider, createBrowserRouter, Hash
 import { FavoritesProvider } from './context/favorites'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
-import Nav from './components/Nav'
+import Navbar from './components/Navbar'
 
 const LazyHomePage = lazy(() => import('./components/page/Home'))
 const LazyFavoritesPage = lazy(() => import('./components/page/Favorites'))
@@ -40,7 +40,8 @@ export default function App () {
       <Suspense fallback={<Loader />}>
         <FavoritesProvider>
 
-          <Nav />
+          <Navbar />
+          <div className='nav-ghost'></div>
             <Routes>
               <Route path='/' element={<LazyHomePage />} />
               <Route path='/:search' element={<LazyHomePage />} />
