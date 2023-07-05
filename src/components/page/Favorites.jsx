@@ -2,7 +2,8 @@
 import { lazy } from 'react'
 import { FavIcon, RemoveFromFavIcon } from '../Icons.jsx'
 import { useFavorites } from '../../hooks/useFavorites.js'
-import './Favorites.css'
+import { styled } from 'styled-components'
+import { SectionHome } from '../page/Home.jsx'
 
 const ListOfMovies = lazy(() => import('../ListOfMovies.jsx'))
 
@@ -20,15 +21,25 @@ export default function Favorites () {
   const hasMovies = favorites?.length > 0
 
   return (
-        <>
-            <section className='main-fav'>
-            <FavIcon className='icon-fav' />
-              {hasMovies ? <ListOfMovies movies={favorites} /> : <NoFavorites />}
-
-                <button onClick={clearFav} className='delete-fav'>
-                    <RemoveFromFavIcon />
-                </button>
-            </section>
-        </>
+    <>
+      <FavSection>
+        <FavIcon className='icon-fav' />
+        {hasMovies ? <ListOfMovies movies={favorites} /> : <NoFavorites />}
+        <button onClick={clearFav}>
+          <RemoveFromFavIcon />
+        </button>
+      </FavSection>
+    </>
   )
 }
+
+const FavSection = styled(SectionHome)`
+    min-height: 75vh;
+    text-align: center;
+    button {
+    margin-bottom: 3rem;
+    svg {
+        margin: 2rem;
+    }
+}
+`

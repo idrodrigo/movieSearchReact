@@ -1,4 +1,4 @@
-import './Marquee.css'
+import { styled } from 'styled-components'
 
 const marquee = [
   'The best movies search online',
@@ -14,14 +14,26 @@ const marquee = [
 ]
 export default function Marquee () {
   return (
-        <marquee >
-            <div className="marquee">
-                {
-                    marquee.map((item, index) => (
-                        <small key={index}>{item}</small>
-                    ))
-                }
-            </div>
-        </marquee>
+    <HomeMarquee >
+      <marquee>
+        <div>
+          {
+            marquee.map((item, index) => (
+              <small key={index}>{item}</small>
+            ))
+          }
+        </div>
+      </marquee>
+    </HomeMarquee>
   )
 }
+
+const HomeMarquee = styled.div`
+div{
+  padding-top: 1vh;
+  color: var(--links);
+  display: flex;
+  gap: 10rem;
+  width: 100vw;
+}
+`

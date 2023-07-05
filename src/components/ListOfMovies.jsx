@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { useFavorites } from '../hooks/useFavorites'
-import { SearchIcon } from './Icons'
+import { SearchIcon, FavIcon } from './Icons'
 import { Link } from 'react-router-dom'
+import confetti from 'canvas-confetti'
 
 export default function ListOfMovies ({ movies }) {
   const { addToFav, favorites, removeFromFav } = useFavorites()
@@ -18,9 +19,15 @@ export default function ListOfMovies ({ movies }) {
 
   function handleDoubleClick (movie, isProductInFav) {
     return () => {
-      isProductInFav
-        ? removeFromFav(movie)
-        : addToFav(movie)
+      if (isProductInFav) {
+        removeFromFav(movie)
+      } else {
+        confetti({
+          particleCount: 100,
+          spread: 1000
+        })
+        addToFav(movie)
+      }
     }
   }
 
@@ -30,12 +37,17 @@ export default function ListOfMovies ({ movies }) {
         const isProductInFav = checkProductInFav(movie.id)
         return (
           <LiMovie key={movie.id} className="movie"
-            style={{ borderColor: isProductInFav ? 'red' : '' }}
             onDoubleClick={handleDoubleClick(movie, isProductInFav)}
           >
             <img src={movie.poster} alt={movie.Title} />
             <h3>{movie.title}</h3>
             <p> {movie.year}</p>
+            <FavIconDiv>
+              {isProductInFav
+                ? <FavIcon />
+                : null
+              }
+            </FavIconDiv>
             <InfoButton>
               <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'black' }}> <SearchIcon /> </Link>
             </InfoButton>
@@ -58,10 +70,9 @@ const UlMovies = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: .5rem;
   align-items: last baseline;
-  justify-items: center;
   border: 2px solid #f2f2f2;
   @media(min-width: 768px){
     gap: 1.5rem;
@@ -70,16 +81,16 @@ const UlMovies = styled.ul`
   }
 `
 const LiMovie = styled.li`
-  background-color: #f8f8f8;
   position: relative;
   transition: all 0.6s ease-in-out;
   color: black;
   padding: 0.3rem;
   padding-bottom: 0.5rem;
-  cursor: pointer;
+  cursor: default;
   border: 2px solid #f2f2f2;
   border-radius: 0.8rem;
   max-width: 180px;
+  max-height: 425px;
   overflow: hidden;
 
   @media(min-width: 768px){
@@ -91,7 +102,7 @@ const LiMovie = styled.li`
     cursor: default;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
-    box-shadow: 3px 12px 10px #000000;
+    box-shadow: 5px 5px 5px #222;
   }
 
   h3,p {
@@ -107,8 +118,6 @@ const LiMovie = styled.li`
 
   &:hover {
     position: relative;
-    background-color: rgb(210, 243, 255);
-    border-color: rgb(210, 243, 255);
     transition: all 1s ease-in-out;
   }
 
@@ -124,7 +133,6 @@ const LiMovie = styled.li`
   }
   `
 const InfoButton = styled.button`
-/* display: none ; */
 height: 3.5rem;
 width: 3.5rem;
 cursor: pointer;
@@ -140,6 +148,7 @@ box-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
 margin: 0;
 padding: 0;
 text-align: center;
+overflow: hidden;
 
 ${LiMovie}:hover & {
   top: 55%;
@@ -151,4 +160,12 @@ ${LiMovie}:hover & {
 &:hover {
   scale: 1.07;
 }
+`
+const FavIconDiv = styled.div`
+cursor: default;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -50px 0 0 -25px;
+opacity: 0.7;
 `

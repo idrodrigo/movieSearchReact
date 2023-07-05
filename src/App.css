@@ -2,9 +2,6 @@
   z-index: 1;
 }
 
-.nav-ghost {
-  height: 10vh;
-}
 
 section {
   display: block;
@@ -13,9 +10,4 @@ section {
   justify-content: center;
   align-items: center;
   background-color: #f2f2f2;
-
-  & .favo,
-  .noFound {
-    color: var(--links);
-  }
 }

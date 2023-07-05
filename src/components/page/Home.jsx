@@ -8,7 +8,6 @@ import { Movies } from '../Movies'
 
 import { mockMovies } from '../../mocks/mockMovies'
 
-import './Home.css'
 import Marquee from '../Marquee'
 import { styled } from 'styled-components'
 
@@ -86,12 +85,12 @@ export default function Home () {
         </FormSearch>
       </HeaderHome>
 
-      <section className='main-home'>
+      <SectionHome className='main-home'>
         {/* peliculas */}
         {!search
           ? <><p>Search a movie!</p> <h4 className='favo'>Our Choice:</h4> <Movies movies={mockMappedMovies} /> </>
           : loading ? <> <Loader /> </> : <Movies movies={movies} />}
-      </section>
+      </SectionHome>
     </>
   )
 }
@@ -133,7 +132,19 @@ const FormSearch = styled.form`
         flex-wrap: wrap;
     }
 `
+export const SectionHome = styled.section`
+    min-height: 65vh;
+    display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
 
+  h4 {
+    color: var(--links);
+  }
+`
 const HeaderHome = styled.header`
     min-height: 10vh;
     background-color: #f2f2f2;

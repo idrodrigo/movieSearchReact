@@ -41,7 +41,6 @@ export default function App () {
         <FavoritesProvider>
 
           <Navbar />
-          <div className='nav-ghost'></div>
             <Routes>
               <Route path='/' element={<LazyHomePage />} />
               <Route path='/:search' element={<LazyHomePage />} />

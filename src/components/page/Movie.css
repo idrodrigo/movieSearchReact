@@ -62,7 +62,9 @@
     }
 
     & .two {
-
+        max-height: 250px;
+        overflow-y: scroll;
+        text-overflow: ellipsis;
         grid-area: 2 / 3 / 4 / 6;
     }
 

@@ -11,6 +11,7 @@ export default function Navbar () {
   const list = ['favorites']
   return (
     <>
+
       <NavContainer>
         <div className='logo'>
         <NavLink to='/'>
@@ -34,13 +35,14 @@ export default function Navbar () {
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`} />
       </NavContainer>
+      <NavGhost></NavGhost>
     </>
   )
 }
 
 const NavContainer = styled.nav`
   width: 100vw;
-  height: 10vh;
+  min-height: 10vh;
   padding: .4rem;
   background-color: rgb(210, 243, 255);
   border-bottom: 1px solid #E2E8F0;
@@ -83,6 +85,7 @@ const NavContainer = styled.nav`
       display: block;
       font-weight: bolder;
       font-size: 1.2rem;
+      
     }
     @media(min-width: 768px){
       position: initial;
@@ -92,6 +95,7 @@ const NavContainer = styled.nav`
         color: var(--links);
         display: inline;
         margin-right: 2.5rem;
+        
       }
     }
   }
@@ -136,7 +140,6 @@ const NavContainer = styled.nav`
     }
   }
 `
-
 const BgDiv = styled.div`
   z-index: -1;
   background-color: rgb(210, 243, 255);
@@ -155,4 +158,7 @@ const BgDiv = styled.div`
     top: 0;
     left: 0;
   }
+`
+const NavGhost = styled.div`
+  min-height: 10vh;
 `
