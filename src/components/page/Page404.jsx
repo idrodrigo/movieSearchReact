@@ -1,6 +1,5 @@
 // import { Link } from 'rho-router'
 import { NavLink } from 'react-router-dom'
-import './Page404.css'
 import { styled } from 'styled-components'
 
 export default function Page404 () {
