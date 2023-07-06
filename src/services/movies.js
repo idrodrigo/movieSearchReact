@@ -33,7 +33,7 @@ export async function searchMovie (imdbID) {
     const json = await response.json()
     const movie = json
 
-    const mappedMovies = movie && {
+    const mappedMovie = movie && {
       id: movie.imdbID,
       title: movie.Title,
       year: movie.Year,
@@ -47,7 +47,7 @@ export async function searchMovie (imdbID) {
       writer: movie.Writer,
       tomato: movie.tomatoURL
     }
-    return mappedMovies
+    return mappedMovie
   } catch (error) {
     throw new Error('Error searching movie')
   }

@@ -42,10 +42,10 @@ export default function Navbar () {
 
 const NavContainer = styled.nav`
   width: 100vw;
-  min-height: 10vh;
+  height: 7vh;
   padding: .4rem;
   background-color: rgb(210, 243, 255);
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 2px solid #E2E8F0;
   padding-left: 2rem;
   padding-right: 2rem;
   display: flex;
@@ -75,7 +75,6 @@ const NavContainer = styled.nav`
     text-align: center;
     left: -300vw;
     top: 8vh;
-    right: 0;
 
     
     a{
@@ -110,10 +109,9 @@ const NavContainer = styled.nav`
     right: 0;
     padding: 0 2rem;
     text-align: start;
-    transition: all .6s ease ;
+    transition: all .4s ease ;
 
     a{
-      transition: all .8s ease ;
       margin-right: 0;
       margin-top: 1rem;
       color: black;
@@ -143,9 +141,9 @@ const NavContainer = styled.nav`
 const BgDiv = styled.div`
   z-index: -1;
   background-color: rgb(210, 243, 255);
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 2px solid #E2E8F0;
   position: absolute;
-  top: -1000px;
+  top: -15vh;
   left: 0;
   width: 100vw;
   height: 22vh;
@@ -160,5 +158,5 @@ const BgDiv = styled.div`
   }
 `
 const NavGhost = styled.div`
-  min-height: 10vh;
+  height: 7vh;
 `

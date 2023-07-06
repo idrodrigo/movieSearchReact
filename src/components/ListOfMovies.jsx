@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import { useFavorites } from '../hooks/useFavorites'
-import { SearchIcon, FavIcon } from './Icons'
-import { Link } from 'react-router-dom'
+import { FavIcon } from './Icons'
+import { NavLink } from 'react-router-dom'
 import confetti from 'canvas-confetti'
+import { IconAnchor } from './Footer.jsx'
+import { IconContext } from 'react-icons'
+import { BiSolidRightArrow } from 'react-icons/bi'
 
 export default function ListOfMovies ({ movies }) {
   const { addToFav, favorites, removeFromFav } = useFavorites()
@@ -48,9 +51,11 @@ export default function ListOfMovies ({ movies }) {
                 : null
               }
             </FavIconDiv>
-            <InfoButton>
-              <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'black' }}> <SearchIcon /> </Link>
+            <IconContext.Provider value={{ color: '', size: '1.5em' }}>
+            <InfoButton width={'3.5em'} height={'3.5em'} $bcolor={'#1ED760'}>
+              <NavLink to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'black' }}> <BiSolidRightArrow /> </NavLink>
             </InfoButton>
+            </IconContext.Provider>
           </LiMovie>
         )
       })}
@@ -102,7 +107,7 @@ const LiMovie = styled.li`
     cursor: default;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
-    box-shadow: 5px 5px 5px #222;
+    box-shadow: 0px 2px 6px #222;
   }
 
   h3,p {
@@ -132,35 +137,72 @@ const LiMovie = styled.li`
     left: 0%
   }
   `
-const InfoButton = styled.button`
-height: 3.5rem;
-width: 3.5rem;
-cursor: pointer;
-background-color: white;
-font-size: larger;
-position: absolute;
-top: 55%;
-left: 120%;
-opacity: 0.1;
-border: 0;
-border-radius: 100%;
-box-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
-margin: 0;
-padding: 0;
-text-align: center;
-overflow: hidden;
 
-${LiMovie}:hover & {
-  top: 55%;
-  left: 60%;
-  opacity: 1;
-  transition: all .8s ease;
+const InfoButton = styled(IconAnchor)`
+    opacity: .01;
+    position: absolute;
+    top: 55%;
+    left: 95%;
+  > *{
+    box-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
+    background-color: #1ED760;
+    @media(max-width: 768px){
+      width: 3em;
+      height: 3em;
+      svg{
+        width: 1.2em;
+        height: 1.2em;
+      }
+    }
+    &:hover {
+      background-color: #1ED760;
+      transition: all 0.4s ease-in-out;
+    }
+  }
 
-}
-&:hover {
-  scale: 1.07;
-}
-`
+ ${LiMovie}:hover & {
+   top: 55%;
+   left: 55%;
+   opacity: 1;
+   transition: all .8s ease;
+   /* @media(max-width: 768px){
+    top: 50%;
+    left: 50%;
+  } */
+ }
+ &:hover {
+   scale: 1.07;
+ }
+  `
+// const InfoButton = styled.button`
+// height: 3.5rem;
+// width: 3.5rem;
+// cursor: pointer;
+// background-color: #1ED760;
+// font-size: larger;
+// position: absolute;
+// top: 55%;
+// left: 120%;
+// opacity: 0.1;
+// border: 0;
+// border-radius: 100%;
+// box-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
+// margin: 0;
+// padding: 0;
+// text-align: center;
+// overflow: hidden;
+
+// ${LiMovie}:hover & {
+//   top: 55%;
+//   left: 60%;
+//   opacity: 1;
+//   transition: all .8s ease;
+
+// }
+// &:hover {
+//   scale: 1.07;
+// }
+// `
 const FavIconDiv = styled.div`
 cursor: default;
 position: absolute;

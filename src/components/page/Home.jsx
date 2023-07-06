@@ -146,7 +146,7 @@ export const SectionHome = styled.section`
   }
 `
 const HeaderHome = styled.header`
-    min-height: 10vh;
+    min-height: 13vh;
     background-color: #f2f2f2;
     h1 {
         color: var(--links);

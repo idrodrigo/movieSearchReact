@@ -1,9 +1,12 @@
 // import { useId } from 'react'
 import { lazy } from 'react'
-import { FavIcon, RemoveFromFavIcon } from '../Icons.jsx'
+import { FavIcon } from '../Icons.jsx'
 import { useFavorites } from '../../hooks/useFavorites.js'
 import { styled } from 'styled-components'
 import { SectionHome } from '../page/Home.jsx'
+import { IconAnchor } from '../Footer.jsx'
+import { BsTrashFill } from 'react-icons/bs'
+import { IconContext } from 'react-icons'
 
 const ListOfMovies = lazy(() => import('../ListOfMovies.jsx'))
 
@@ -25,21 +28,27 @@ export default function Favorites () {
       <FavSection>
         <FavIcon className='icon-fav' />
         {hasMovies ? <ListOfMovies movies={favorites} /> : <NoFavorites />}
-        <button onClick={clearFav}>
-          <RemoveFromFavIcon />
-        </button>
+        <IconContext.Provider value={{ color: '#0f6dff', size: '1.7em' }}>
+          <IconAnchor width={'8em'} height={'3em'} $bradio={'10px'}>
+            <button onClick={clearFav}>
+              <BsTrashFill />
+            </button>
+          </IconAnchor>
+        </IconContext.Provider>
       </FavSection>
     </>
   )
 }
 
 const FavSection = styled(SectionHome)`
-    min-height: 75vh;
+    min-height: 78vh;
     text-align: center;
     button {
-    margin-bottom: 3rem;
-    svg {
+      padding: 0;
+      margin: 0;
+      margin-bottom: 3rem;
+    /* svg {
         margin: 2rem;
-    }
+    } */
 }
 `

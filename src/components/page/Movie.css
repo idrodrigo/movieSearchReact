@@ -1,13 +1,12 @@
 .main-movie {
-    min-height: 75vh;
+    min-height: 78vh;
 }
 
-
 .movie-card {
+    margin-top: 2rem;
     font: 14px/22px "Lato", Arial, sans-serif;
     color: #A9A8A3;
     padding: 2% 10%;
-    margin-top: 0rem;
     display: flex;
     justify-content: center;
 }
@@ -69,6 +68,12 @@
     }
 
     & .tree {
+        & a {
+            margin: 0;
+            text-decoration: none;
+            color: var(--links);
+        }
+
         display: flex;
         gap: 2rem;
         grid-area: 4 / 3 / 5 / 6;
@@ -78,6 +83,7 @@
 @media only screen and (max-width: 600px) {
     .movie-card {
         margin-top: 2rem;
+        padding: 2% 10%;
     }
 
     .container {

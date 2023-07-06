@@ -2,10 +2,14 @@ import { NavLink, useParams } from 'react-router-dom'
 import './Movie.css'
 import { useEffect, useState } from 'react'
 import { searchMovie } from '../../services/movies'
+import Loader from '../Loader'
+import { BsCaretLeftFill } from 'react-icons/bs'
+import { IconAnchor } from '../Footer.jsx'
+import { IconContext } from 'react-icons'
 
 export default function Movie () {
   const { imdbID } = useParams()
-  const [movie, setMovie] = useState({})
+  const [movie, setMovie] = useState(null)
 
   async function getMovie (imdbID) {
     try {
@@ -28,10 +32,16 @@ export default function Movie () {
     <>
       {movie
         ? <section className='main-movie'>
-          <NavLink className='return' to={'/'}>Back to home</NavLink>
-          <div key={movie.id}>
+            <IconContext.Provider value={{ color: 'var(--links)', size: '2em' }}>
+            <IconAnchor width={'5em'} height={'2.5em'} $bradio={'15px'}>
+              <NavLink className='return' to={'/'}>
+                <BsCaretLeftFill />
+              </NavLink>
+              </IconAnchor>
 
-            <div className="movie-card">
+            </IconContext.Provider>
+
+          <div key={movie.id} className='movie-card'>
 
               <div className="container">
                 <div className='cover'>
@@ -75,24 +85,27 @@ export default function Movie () {
                 </div>
 
                 <div className="tree">
+                <IconAnchor width={'6em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#0f6dff'}>
                   <a href={`http://www.imdb.com/title/${movie.id}/`} target="_blank" rel="noopener noreferrer">
                     IMDB
                   </a>
+                  </IconAnchor>
 
+                  <IconAnchor width={'11em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#0f6dff'}>
                   <a href={movie?.tomato === 'N/A' ? '' : movie.tomato} target="_blank" rel="noopener noreferrer">
                     Rotten Tomatoes
                   </a>
+                  </IconAnchor>
                 </div>
 
                 {/* </div> */}
 
               </div>
-            </div>
           </div>
 
         </section>
 
-        : <h2>loading...</h2>}
+        : <Loader />}
 
     </>
   )
