@@ -104,6 +104,12 @@ const LiMovie = styled.li`
   }
 
   img {
+    @media(min-width: 768px){
+      min-width: 180px;
+      min-height: 260px;
+    }
+    min-width: 166px;
+    min-height: 240px;
     cursor: default;
     margin-bottom: 1rem;
     border-radius: 0.5rem;

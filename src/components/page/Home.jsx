@@ -58,20 +58,28 @@ export default function Home () {
     // }
   }, [search])
 
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
+
   return (
     <>
       <HeaderHome>
         <Marquee />
         <FormSearch className='form' onSubmit={handleSubmit}>
           <div className='input-search'>
-            <input onChange={handleChange} style={{
-              border: `1px solid ${error ? 'red' : 'transparent'}`
-            }} value={search} name='query' ref={inputRef} placeholder='Spider man, Pokemon, Avengers, ...' />
+            <input
+              onChange={handleChange}
+              style={{ border: `1px solid ${error ? 'red' : 'transparent'}` }}
+              value={search}
+              name='query'
+              ref={inputRef}
+              placeholder='Spider man, Pokemon, Avengers, ...' />
 
             {/* <button type='submit'>Search</button> */}
           </div>
           <div className='sort'>
-            <label>Sort by:</label>
+            <label>Filters:</label>
             <select value={selectedSortOption} onChange={handleSortChange}>
               <option value="">None</option>
               {sortOptions.map((option) => (
@@ -99,7 +107,9 @@ const FormSearch = styled.form`
     padding-top: 0.5rem;
     padding-bottom: 1rem;
     padding: 0px 30px 0px 30px;
-
+    select{
+      border: 1px solid #1ED760;
+    }
     .error {
         text-align: center;
         margin: 0;
@@ -133,8 +143,8 @@ const FormSearch = styled.form`
     }
 `
 export const SectionHome = styled.section`
-    min-height: 65vh;
-    display: block;
+  min-height: 65vh;
+  display: block;
   display: flex;
   flex-direction: column;
   justify-content: center;

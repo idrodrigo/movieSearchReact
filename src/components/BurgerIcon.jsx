@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-function BurguerButton ({ clicked, handleClick }) {
+export default function BurguerButton ({ clicked, handleClick }) {
   return (
     <Burguer>
       <div
+        role="burger"
         onClick={handleClick}
         className={`icon nav-icon-5 ${clicked ? 'open' : ''}`}
       >
@@ -14,8 +15,6 @@ function BurguerButton ({ clicked, handleClick }) {
     </Burguer>
   )
 }
-
-export default BurguerButton
 
 const Burguer = styled.div`
 

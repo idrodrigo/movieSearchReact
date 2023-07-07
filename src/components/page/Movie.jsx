@@ -32,75 +32,75 @@ export default function Movie () {
     <>
       {movie
         ? <section className='main-movie'>
-            <IconContext.Provider value={{ color: 'var(--links)', size: '2em' }}>
+          <IconContext.Provider value={{ color: 'var(--links)', size: '2em' }}>
             <IconAnchor width={'5em'} height={'2.5em'} $bradio={'15px'}>
               <NavLink className='return' to={'/'}>
                 <BsCaretLeftFill />
               </NavLink>
-              </IconAnchor>
+            </IconAnchor>
 
-            </IconContext.Provider>
+          </IconContext.Provider>
 
           <div key={movie.id} className='movie-card'>
 
-              <div className="container">
-                <div className='cover'>
-                  <img src={movie.poster} alt="cover" />
-                </div>
+            <div className="container">
+              <div className='cover'>
+                <img src={movie.poster} alt="cover" />
+              </div>
 
-                {/* <div className="description"> */}
-                <div className='one'>
-                  <div className="title1">{movie?.title}
-                    <div className='rated'>
-                      <span>{movie?.rated}</span>
-                    </div>
-                  </div>
-
-                  <div className="column1">
-                    <span className="tag">Rating: {movie.imdbRating}</span>
-                    <span className="tag">{movie?.year}</span>
-                    <span className="tag">{movie?.gen}</span>
+              {/* <div className="description"> */}
+              <div className='one'>
+                <div className="title1">{movie?.title}
+                  <div className='rated'>
+                    <span>{movie?.rated}</span>
                   </div>
                 </div>
 
-                <div className="two">
+                <div className="column1">
+                  <span className="tag">Rating: {movie.imdbRating}</span>
+                  <span className="tag">{movie?.year}</span>
+                  <span className="tag">{movie?.gen}</span>
+                </div>
+              </div>
 
-                  <p className='plot'> {movie?.plot}</p>
+              <div className="two">
 
-                  <div className="avatars">
-                    <p href="#" data-tooltip="Person 1" data-placement="top">
-                      Actors: {movie?.actors}
-                    </p>
+                <p className='plot'> {movie?.plot}</p>
 
-                    <p href="#" data-tooltip="Person 2" data-placement="top">
-                      Director: {movie?.director}
-                    </p>
+                <div className="avatars">
+                  <p href="#" data-tooltip="Person 1" data-placement="top">
+                    Actors: {movie?.actors}
+                  </p>
 
-                    <p href="#" data-tooltip="Person 3" data-placement="top">
-                      Writer: {movie?.writer}
-                    </p>
+                  <p href="#" data-tooltip="Person 2" data-placement="top">
+                    Director: {movie?.director}
+                  </p>
 
-                  </div>
+                  <p href="#" data-tooltip="Person 3" data-placement="top">
+                    Writer: {movie?.writer}
+                  </p>
 
                 </div>
 
-                <div className="tree">
+              </div>
+
+              <div className="tree">
                 <IconAnchor width={'6em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#0f6dff'}>
                   <a href={`http://www.imdb.com/title/${movie.id}/`} target="_blank" rel="noopener noreferrer">
                     IMDB
                   </a>
-                  </IconAnchor>
+                </IconAnchor>
 
-                  <IconAnchor width={'11em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#0f6dff'}>
+                <IconAnchor width={'11em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#0f6dff'}>
                   <a href={movie?.tomato === 'N/A' ? '' : movie.tomato} target="_blank" rel="noopener noreferrer">
                     Rotten Tomatoes
                   </a>
-                  </IconAnchor>
-                </div>
-
-                {/* </div> */}
-
+                </IconAnchor>
               </div>
+
+              {/* </div> */}
+
+            </div>
           </div>
 
         </section>

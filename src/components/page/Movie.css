@@ -1,5 +1,9 @@
 .main-movie {
     min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .movie-card {

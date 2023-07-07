@@ -2,38 +2,43 @@ import styled from 'styled-components'
 import BurguerButton from './BurgerIcon'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { BsDiscFill } from 'react-icons/bs'
 
 export default function Navbar () {
+  const list = ['favorites']
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
     setClicked(!clicked)
   }
-  const list = ['favorites']
   return (
     <>
 
       <NavContainer>
         <div className='logo'>
-        <NavLink to='/'>
-            <img src='./popcorn.svg' alt='movies' />
+          <NavLink to='/' role='gohome'>
+            <BsDiscFill />
+            {/* <img src='./popcorn.svg' alt='image of the movie search logo' /> */}
             <h1>Movies Search</h1>
-        </NavLink>
+          </NavLink>
         </div>
 
-        <div className={`links ${clicked ? 'active' : ''}`}>
+        <div role={'links'} className={`links ${clicked ? 'active' : ''}`}>
           <NavLink onClick={handleClick} to='/'>Home</NavLink>
           {
             list.map(link =>
-            <NavLink onClick={handleClick} to={`/${link}`} key={link}
-            className={({ isActive }) => isActive ? 'activo' : null}>
+              <NavLink
+                onClick={handleClick}
+                to={`/${link}`}
+                key={link}
+                className={({ isActive }) => isActive ? 'activo' : null}>
                 {link}
-            </NavLink>)
-        }
+              </NavLink>)
+          }
         </div>
         <div className='burguer'>
           <BurguerButton clicked={clicked} handleClick={handleClick} />
         </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`} />
+        <BgDiv role={'bgdiv'} className={`initial ${clicked ? ' active' : ''}`} />
       </NavContainer>
       <NavGhost></NavGhost>
     </>
@@ -42,30 +47,35 @@ export default function Navbar () {
 
 const NavContainer = styled.nav`
   width: 100vw;
-  height: 7vh;
+  height: 8vh;
   padding: .4rem;
   background-color: rgb(210, 243, 255);
   border-bottom: 2px solid #E2E8F0;
   padding-left: 2rem;
   padding-right: 2rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   z-index: 3;
 
   .logo{
-    img {
-            display: inline-block;
-            width: 30px;
-        }
+    margin: 0;
+
+    svg{
+      color:#1ED760;
+      display: inline-block;
+      height: 25px;
+      width: 25px;
+    }
     h1 {
-            color: var(--links);
-            padding-left: 0.5rem;
-            display: inline-block;
-            font-size: 1.5rem;
-            margin-left: 0.5rem;
-        }
+      color: var(--links);
+      color:#1ED760;
+      padding-left: 0.5rem;
+      display: inline-block;
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
   }
 
   .links{
@@ -143,7 +153,7 @@ const BgDiv = styled.div`
   background-color: rgb(210, 243, 255);
   border-bottom: 2px solid #E2E8F0;
   position: absolute;
-  top: -15vh;
+  top: -14vh;
   left: 0;
   width: 100vw;
   height: 22vh;
@@ -158,5 +168,5 @@ const BgDiv = styled.div`
   }
 `
 const NavGhost = styled.div`
-  height: 7vh;
+  height: 8vh;
 `

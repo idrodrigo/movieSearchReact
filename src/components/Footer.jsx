@@ -84,8 +84,8 @@ const Foooter = styled.footer`
         }
       }
     @media(min-width: 768px){
-      margin-left: 20%;
-    margin-right: 20%;
+      margin-left: 15%;
+    margin-right: 15%;
       display: flex;
       align-items: center;
       justify-content: start;

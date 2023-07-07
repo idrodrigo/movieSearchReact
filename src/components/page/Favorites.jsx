@@ -29,7 +29,7 @@ export default function Favorites () {
         <FavIcon className='icon-fav' />
         {hasMovies ? <ListOfMovies movies={favorites} /> : <NoFavorites />}
         <IconContext.Provider value={{ color: '#0f6dff', size: '1.7em' }}>
-          <IconAnchor width={'8em'} height={'3em'} $bradio={'10px'}>
+          <IconAnchor width={'5em'} height={'3em'} $bradio={'10px'}>
             <button onClick={clearFav}>
               <BsTrashFill />
             </button>
@@ -41,8 +41,7 @@ export default function Favorites () {
 }
 
 const FavSection = styled(SectionHome)`
-    min-height: 78vh;
-    text-align: center;
+    min-height: 77vh;
     button {
       padding: 0;
       margin: 0;
