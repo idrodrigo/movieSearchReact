@@ -14,10 +14,12 @@ describe('<Navbar />', () => {
 
   it('should render correctly', () => {
     screen.getByText('Movies Search', 'Home', 'favorites')
+    screen.getByRole('burger')
   })
 
   it('should render logo', () => {
-    screen.getByAltText('image of the movie search logo')
+    // screen.getByAltText('image of the movie search logo')
+    screen.getByRole('logo-go-home')
   })
 
   it('should toggle clicked state when burger button is clicked', () => {

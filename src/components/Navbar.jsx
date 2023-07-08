@@ -15,8 +15,8 @@ export default function Navbar () {
 
       <NavContainer>
         <div className='logo'>
-          <NavLink to='/' role='gohome'>
-            <BsDiscFill />
+          <NavLink to='/'>
+            <BsDiscFill role='logo-go-home'/>
             {/* <img src='./popcorn.svg' alt='image of the movie search logo' /> */}
             <h1>Movies Search</h1>
           </NavLink>
