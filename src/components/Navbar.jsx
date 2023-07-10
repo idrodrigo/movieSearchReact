@@ -47,6 +47,7 @@ export default function Navbar () {
 
 const NavContainer = styled.nav`
   background-color: var(--background-body);
+  border-bottom: 2px solid #E2E8F0;
   width: 100vw;
   height: 8vh;
   padding: .4rem;
