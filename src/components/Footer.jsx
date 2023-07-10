@@ -27,7 +27,7 @@ export default function Footer () {
         </div>
         <div className='end'>
           <div className='rho'>
-            <p><a href='https://github.com/idrodrigo' target='_blank' rel='noreferrer'>@Rho 2023, all rights reserved</a></p>
+            <p><a href='https://github.com/idrodrigo' target='_blank' rel='noreferrer'>© Rho 2023, all rights reserved</a></p>
           </div>
           <div className='links'>
             <p><a href='https://www.omdbapi.com/' target='_blank' rel='noreferrer'>OMDb API</a></p>
@@ -43,7 +43,7 @@ export default function Footer () {
 
 const Foooter = styled.footer`
   min-height: 15vh;
-  background-color: rgb(210, 243, 255);
+  background-color: var(--background-body);
   border-top: 2px solid #E2E8F0;
   text-align: center;
   display: flex;

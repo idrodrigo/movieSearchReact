@@ -22,6 +22,11 @@ export default function Favorites () {
   // const cartCheckBoxId = useId()
   const { clearFav, favorites } = useFavorites()
   const hasMovies = favorites?.length > 0
+  const handleClick = () => {
+    if (confirm('Please confirm you want to delete all your list of favorites.')) {
+      return clearFav()
+    }
+  }
 
   return (
     <>
@@ -30,7 +35,7 @@ export default function Favorites () {
         {hasMovies ? <ListOfMovies movies={favorites} /> : <NoFavorites />}
         <IconContext.Provider value={{ color: '#0f6dff', size: '1.7em' }}>
           <IconAnchor width={'5em'} height={'3em'} $bradio={'10px'}>
-            <button onClick={clearFav}>
+            <button onClick={handleClick}>
               <BsTrashFill />
             </button>
           </IconAnchor>
@@ -41,13 +46,10 @@ export default function Favorites () {
 }
 
 const FavSection = styled(SectionHome)`
-    min-height: 77vh;
-    button {
-      padding: 0;
-      margin: 0;
-      margin-bottom: 3rem;
-    /* svg {
-        margin: 2rem;
-    } */
+  min-height: 77vh;
+  button {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 3rem;
 }
 `

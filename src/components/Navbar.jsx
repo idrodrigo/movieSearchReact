@@ -46,11 +46,10 @@ export default function Navbar () {
 }
 
 const NavContainer = styled.nav`
+  background-color: var(--background-body);
   width: 100vw;
   height: 8vh;
   padding: .4rem;
-  background-color: rgb(210, 243, 255);
-  border-bottom: 2px solid #E2E8F0;
   padding-left: 2rem;
   padding-right: 2rem;
   display: flex;
@@ -88,7 +87,6 @@ const NavContainer = styled.nav`
 
     
     a{
-      color: var(--links);
       text-decoration: none;
       margin-right: 1rem;
       display: block;
@@ -101,7 +99,7 @@ const NavContainer = styled.nav`
       margin: 0;
       display: block;
       a{
-        color: var(--links);
+        color: black;
         display: inline;
         margin-right: 2.5rem;
         
@@ -133,7 +131,7 @@ const NavContainer = styled.nav`
       padding: 0;
       text-align: center;
       a{   
-        color: var(--links);
+        /* color: var(--links); */
         border-bottom: 0;   
         margin-right: 2.5rem;
         font-size: 1.2rem;
@@ -150,7 +148,7 @@ const NavContainer = styled.nav`
 `
 const BgDiv = styled.div`
   z-index: -1;
-  background-color: rgb(210, 243, 255);
+  background-color: var(--background-body);
   border-bottom: 2px solid #E2E8F0;
   position: absolute;
   top: -14vh;

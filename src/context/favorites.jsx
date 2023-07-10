@@ -5,12 +5,12 @@ export const FavoritesContext = createContext()
 function useFavoritesReducer () {
   const [state, dispatch] = useReducer(favoritesReducer, favoritesInitialState)
 
-  const addToFav = (product) => {
-    dispatch({ type: 'ADD_TO_FAV', payload: product })
+  const addToFav = (movie) => {
+    dispatch({ type: 'ADD_TO_FAV', payload: movie })
   }
 
-  const removeFromFav = (product) => {
-    dispatch({ type: 'REMOVE_FROM_FAV', payload: product })
+  const removeFromFav = (movie) => {
+    dispatch({ type: 'REMOVE_FROM_FAV', payload: movie })
   }
 
   const clearFav = () => {

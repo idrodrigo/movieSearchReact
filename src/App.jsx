@@ -2,12 +2,14 @@ import './App.css'
 
 import { Suspense, lazy } from 'react'
 // import { Router, Route } from 'rho-router'
-import { BrowserRouter, Routes, Route, RouterProvider, createBrowserRouter, HashRouter } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import { FavoritesProvider } from './context/favorites'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
 import Navbar from './components/Navbar'
+import { Movies } from './components/Movies'
+import { mockMovies } from './mocks/mockMovies'
 
 const LazyHomePage = lazy(() => import('./components/page/Home'))
 const LazyFavoritesPage = lazy(() => import('./components/page/Favorites'))
@@ -34,6 +36,7 @@ const LazyMoviePage = lazy(() => import('./components/page/Movie'))
 // ])
 
 export default function App () {
+  const mockMappedMovies = mockMovies()
   return (
     <>
     <main>
@@ -42,8 +45,10 @@ export default function App () {
 
           <Navbar />
             <Routes>
-              <Route path='/' element={<LazyHomePage />} />
-              <Route path='/:search' element={<LazyHomePage />} />
+              <Route path='/' element={<LazyHomePage />}>
+                <Route index element={<Movies movies={mockMappedMovies} />} />
+                <Route path='search/:searchID' element={<Movies />} />
+              </Route>
               <Route path='/favorites' element={<LazyFavoritesPage />} />
               <Route path='/movie/:imdbID' element={<LazyMoviePage />} />
               <Route path='/*' element={<LazyPage404 />} />

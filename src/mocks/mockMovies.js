@@ -1,23 +1,23 @@
 export function mockMovies () {
   const mockMovies = [
     {
-      Title: 'Pokémon: Detective Pikachu',
-      Year: '2019',
-      imdbID: 'tt5884052',
+      Title: 'Spider-Man: Across the Spider-Verse',
+      Year: '2023',
+      imdbID: 'tt9362722',
       Type: 'movie',
-      Poster: 'https://m.media-amazon.com/images/M/MV5BMDkxNzRmNDYtMDY0OS00N2JhLTkzZWUtMWE3MzZkNDk1MmJiXkEyXkFqcGdeQXVyNTA3MTU2MjE@._V1_SX300.jpg'
+      Poster: 'https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_SX300.jpg'
     },
     {
-      Title: 'Spider-Man: Across the Spider-Verse',
-      Year: '1997–2023',
-      imdbID: 'tt0168366',
-      Type: 'series',
-      Poster: 'https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg'
+      Title: 'The Pursuit of Happyness',
+      Year: '2006',
+      imdbID: 'tt0454921',
+      Type: 'movie',
+      Poster: 'https://m.media-amazon.com/images/M/MV5BMTQ5NjQ0NDI3NF5BMl5BanBnXkFtZTcwNDI0MjEzMw@@._V1_SX300.jpg'
     },
     {
       Title: 'The Batman',
       Year: '2022',
-      imdbID: 'tt0190641',
+      imdbID: 'tt1877830',
       Type: 'movie',
       Poster: 'https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_SX300.jpg'
     },
@@ -29,11 +29,11 @@ export function mockMovies () {
       Poster: 'https://m.media-amazon.com/images/M/MV5BNzE1NjBiODAtNDVhNS00ZTI1LTg4ZjUtZTk3OWVhODljMjNjXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg'
     },
     {
-      Title: 'Pokemon 4 ever',
-      Year: '2000',
-      imdbID: 'tt0235679',
+      Title: 'Joker',
+      Year: '2019',
+      imdbID: 'tt7286456',
       Type: 'movie',
-      Poster: 'https://m.media-amazon.com/images/M/MV5BMTk0NzM3MDY1OV5BMl5BanBnXkFtZTYwNTkwODc5._V1_SX300.jpg'
+      Poster: 'https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg'
     },
     {
       Title: 'The Lost World: Jurassic Park',
@@ -52,23 +52,23 @@ export function mockMovies () {
     {
       Title: 'Black Panther',
       Year: '2018',
-      imdbID: 'tt0347791',
-      Type: 'movie',
-      Poster: 'https://m.media-amazon.com/images/M/MV5BODg3OTljOTktNmI3Ny00MDczLTk2NGItNWRiOTE2YjQ1OWI0XkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg'
-    },
-    {
-      Title: 'Pokémon: Mewtwo Strikes Back - Evolution',
-      Year: '2019',
-      imdbID: 'tt8856470',
+      imdbID: 'tt1825683',
       Type: 'movie',
       Poster: 'https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg'
     },
     {
-      Title: 'Pokémon: Lucario and the Mystery of Mew',
-      Year: '2005',
-      imdbID: 'tt0875609',
+      Title: 'The Flash',
+      Year: '2023',
+      imdbID: 'tt0439572',
       Type: 'movie',
-      Poster: 'https://m.media-amazon.com/images/M/MV5BMTUxOTcwNjAwMl5BMl5BanBnXkFtZTgwMjc2MzQ2NjE@._V1_SX300.jpg'
+      Poster: 'https://m.media-amazon.com/images/M/MV5BZWE2ZWE5MDQtMTJlZi00MTVjLTkxOTgtNmNiYjg2NDIxN2NhXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg'
+    },
+    {
+      Title: 'The Super Mario Bros. Movie',
+      Year: '2023',
+      imdbID: 'tt6718170',
+      Type: 'movie',
+      Poster: 'https://m.media-amazon.com/images/M/MV5BOTJhNzlmNzctNTU5Yy00N2YwLThhMjQtZDM0YjEzN2Y0ZjNhXkEyXkFqcGdeQXVyMTEwMTQ4MzU5._V1_SX300.jpg'
     }
   ]
 

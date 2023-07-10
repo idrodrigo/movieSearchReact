@@ -66,6 +66,7 @@ export default function Home () {
     <>
       <HeaderHome>
         <Marquee />
+
         <FormSearch className='form' onSubmit={handleSubmit}>
           <div className='input-search'>
             <input
