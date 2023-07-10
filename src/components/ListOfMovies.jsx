@@ -42,7 +42,7 @@ export default function ListOfMovies ({ movies }) {
           <LiMovie key={movie.id} className="movie"
             onDoubleClick={handleDoubleClick(movie, isProductInFav)}
           >
-            <img src={movie.poster} alt={movie.Title} />
+            <img src={movie.poster} alt={movie.title} />
             <h3>{movie.title}</h3>
             <p> {movie.year}</p>
             <FavIconDiv>

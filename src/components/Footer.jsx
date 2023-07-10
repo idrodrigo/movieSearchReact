@@ -7,7 +7,7 @@ export default function Footer () {
     <>
       <Foooter>
         <div className='icons-redes'>
-          <IconContext.Provider value={{ color: '#0f6dff', size: '2em' }}>
+          <IconContext.Provider value={{ color: '#00358A', size: '2em' }}>
             <IconAnchor >
             <a href='https://www.linkedin.com/in/idrodrigo/' target='_blank' rel='noreferrer'>
               <BsLinkedin />

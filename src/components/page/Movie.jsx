@@ -85,13 +85,13 @@ export default function Movie () {
               </div>
 
               <div className="tree">
-                <IconAnchor width={'6em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#0f6dff'}>
+                <IconAnchor width={'6em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#00358A'}>
                   <a href={`http://www.imdb.com/title/${movie.id}/`} target="_blank" rel="noopener noreferrer">
                     IMDB
                   </a>
                 </IconAnchor>
 
-                <IconAnchor width={'11em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#0f6dff'}>
+                <IconAnchor width={'11em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#00358A'}>
                   <a href={movie?.tomato === 'N/A' ? '' : movie.tomato} target="_blank" rel="noopener noreferrer">
                     Rotten Tomatoes
                   </a>

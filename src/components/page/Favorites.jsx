@@ -33,7 +33,7 @@ export default function Favorites () {
       <FavSection>
         <FavIcon className='icon-fav' />
         {hasMovies ? <ListOfMovies movies={favorites} /> : <NoFavorites />}
-        <IconContext.Provider value={{ color: '#0f6dff', size: '1.7em' }}>
+        <IconContext.Provider value={{ color: '#00358A', size: '1.7em' }}>
           <IconAnchor width={'5em'} height={'3em'} $bradio={'10px'}>
             <button onClick={handleClick}>
               <BsTrashFill />
