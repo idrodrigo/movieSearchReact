@@ -124,9 +124,10 @@ export const IconAnchor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: ${props => props.$borderpx || ''};
 
 &:hover {
-  background-color: white;
+  background-color: ${props => props.$bghover || 'white'};
   transition: all 0.4s ease-in-out;
 }
 }

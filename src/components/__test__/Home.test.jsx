@@ -1,5 +1,5 @@
 import Home from '../../components/page/Home'
-import { describe, it, beforeEach, afterEach, expect } from 'vitest'
+import { describe, it, beforeEach, afterEach } from 'vitest'
 import { cleanup, render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { FavoritesProvider } from '../../context/favorites'

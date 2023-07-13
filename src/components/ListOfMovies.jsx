@@ -51,11 +51,15 @@ export default function ListOfMovies ({ movies }) {
                 : null
               }
             </FavIconDiv>
-            <IconContext.Provider value={{ color: '', size: '1.5em' }}>
+
             <InfoButton width={'3.5em'} height={'3.5em'} $bcolor={'#1ED760'}>
-              <NavLink to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'black' }}> <BiSolidRightArrow /> </NavLink>
+              <NavLink to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <IconContext.Provider value={{ color: '', size: '1.5em' }}>
+                  <BiSolidRightArrow />
+                </IconContext.Provider>
+              </NavLink>
             </InfoButton>
-            </IconContext.Provider>
+
           </LiMovie>
         )
       })}
@@ -180,40 +184,10 @@ const InfoButton = styled(IconAnchor)`
    scale: 1.07;
  }
   `
-// const InfoButton = styled.button`
-// height: 3.5rem;
-// width: 3.5rem;
-// cursor: pointer;
-// background-color: #1ED760;
-// font-size: larger;
-// position: absolute;
-// top: 55%;
-// left: 120%;
-// opacity: 0.1;
-// border: 0;
-// border-radius: 100%;
-// box-shadow: 2px 5px 6px rgba(0, 0, 0, 1);
-// margin: 0;
-// padding: 0;
-// text-align: center;
-// overflow: hidden;
-
-// ${LiMovie}:hover & {
-//   top: 55%;
-//   left: 60%;
-//   opacity: 1;
-//   transition: all .8s ease;
-
-// }
-// &:hover {
-//   scale: 1.07;
-// }
-// `
 const FavIconDiv = styled.div`
 cursor: default;
 position: absolute;
 top: 50%;
 left: 50%;
 margin: -50px 0 0 -25px;
-opacity: 0.7;
 `

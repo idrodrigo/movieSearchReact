@@ -32,15 +32,13 @@ export default function Movie () {
     <>
       {movie
         ? <section className='main-movie'>
-          <IconContext.Provider value={{ color: 'var(--links)', size: '2em' }}>
-            <IconAnchor width={'5em'} height={'2.5em'} $bradio={'15px'}>
-              <NavLink className='return' to={'/'}>
+          <IconAnchor width={'5em'} height={'2.5em'} $borderpx={'0'}>
+            <NavLink className='return' to={'/'}>
+              <IconContext.Provider value={{ color: 'var(--links)', size: '2.5em' }}>
                 <BsCaretLeftFill />
-              </NavLink>
-            </IconAnchor>
-
-          </IconContext.Provider>
-
+              </IconContext.Provider>
+            </NavLink>
+          </IconAnchor>
           <div key={movie.id} className='movie-card'>
 
             <div className="container">
@@ -85,13 +83,23 @@ export default function Movie () {
               </div>
 
               <div className="tree">
-                <IconAnchor width={'6em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#00358A'}>
+                <IconAnchor
+                  width={'6em'}
+                  height={'1.8em'}
+                  $bradio={'5px'}
+                  $bcolor={'#00358A'}
+                  $bghover={'#00358A'}>
                   <a href={`http://www.imdb.com/title/${movie.id}/`} target="_blank" rel="noopener noreferrer">
                     IMDB
                   </a>
                 </IconAnchor>
 
-                <IconAnchor width={'11em'} height={'1.8em'} $bradio={'5px'} $bcolor={'#00358A'}>
+                <IconAnchor
+                  width={'11em'}
+                  height={'1.8em'}
+                  $bradio={'5px'}
+                  $bcolor={'#00358A'}
+                  $bghover={'#00358A'}>
                   <a href={movie?.tomato === 'N/A' ? '' : movie.tomato} target="_blank" rel="noopener noreferrer">
                     Rotten Tomatoes
                   </a>

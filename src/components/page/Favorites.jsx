@@ -23,7 +23,7 @@ export default function Favorites () {
   const { clearFav, favorites } = useFavorites()
   const hasMovies = favorites?.length > 0
   const handleClick = () => {
-    if (confirm('Please confirm you want to delete all your list of favorites.')) {
+    if (confirm('Please confirm you want to delete your favorites list.')) {
       return clearFav()
     }
   }

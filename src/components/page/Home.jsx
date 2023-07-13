@@ -69,7 +69,7 @@ export default function Home () {
 
         <FormSearch className='form' onSubmit={handleSubmit}>
           <div className='input-search'>
-            <input
+            <InputSearch
               onChange={handleChange}
               style={{ border: `1px solid ${error ? 'red' : 'transparent'}` }}
               value={search}
@@ -77,7 +77,6 @@ export default function Home () {
               ref={inputRef}
               placeholder='Spider man, Pokemon, Avengers, ...' />
 
-            {/* <button type='submit'>Search</button> */}
           </div>
           <div className='sort'>
             <label>Filters:</label>
@@ -97,7 +96,11 @@ export default function Home () {
       <SectionHome className='main-home'>
         {/* peliculas */}
         {!search
-          ? <><p>Search a movie!</p> <h4 className='favo'>Our Choice:</h4> <Movies movies={mockMappedMovies} /> </>
+          ? <>
+            <p> Dobble click on a movie to add or remove to favorites</p>
+            <h4 className='favo'>Our Choice:</h4>
+            <Movies movies={mockMappedMovies} />
+          </>
           : loading ? <> <Loader /> </> : <Movies movies={movies} />}
       </SectionHome>
     </>
@@ -151,7 +154,11 @@ export const SectionHome = styled.section`
   justify-content: center;
   align-items: center;
   background-color: #f2f2f2;
-
+  p{
+    margin: 0;
+    padding: 0;
+    color: var(--links);
+  }
   h4 {
     color: var(--links);
   }
@@ -162,4 +169,14 @@ const HeaderHome = styled.header`
     h1 {
         color: var(--links);
     }
+`
+
+const InputSearch = styled.input`
+  width: 100%;
+  padding-left: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='%23999' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.625rem 0.75rem;
+  background-size: 1rem;
+  position: relative;
 `
