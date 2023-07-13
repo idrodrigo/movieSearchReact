@@ -97,7 +97,7 @@ export default function Home () {
         {/* peliculas */}
         {!search
           ? <>
-            <p> Dobble click on a movie to add or remove to favorites</p>
+            <p className='info'> Dobble click on a movie to add or remove to favorites</p>
             <h4 className='favo'>Our Choice:</h4>
             <Movies movies={mockMappedMovies} />
           </>
@@ -157,11 +157,13 @@ export const SectionHome = styled.section`
   p{
     margin: 0;
     font-size: .8rem;
+    padding: 0;
+    color: var(--links);
+  }
+  .info {
     text-align: center;
     margin-left: 3rem;
     margin-right: 3rem;
-    padding: 0;
-    color: var(--links);
   }
   h4 {
     color: var(--links);
