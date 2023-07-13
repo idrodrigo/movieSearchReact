@@ -156,6 +156,10 @@ export const SectionHome = styled.section`
   background-color: #f2f2f2;
   p{
     margin: 0;
+    font-size: .8rem;
+    text-align: center;
+    margin-left: 3rem;
+    margin-right: 3rem;
     padding: 0;
     color: var(--links);
   }
