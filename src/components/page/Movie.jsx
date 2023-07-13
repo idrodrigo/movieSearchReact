@@ -32,7 +32,7 @@ export default function Movie () {
     <>
       {movie
         ? <section className='main-movie'>
-          <IconAnchor width={'5em'} height={'2.5em'} $borderpx={'0'}>
+          <IconAnchor $borderpx={'0'} $bghover={'#f2f2f2'}>
             <NavLink className='return' to={'/'}>
               <IconContext.Provider value={{ color: 'var(--links)', size: '2.5em' }}>
                 <BsCaretLeftFill />
