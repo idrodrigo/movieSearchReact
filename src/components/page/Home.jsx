@@ -111,6 +111,9 @@ const FormSearch = styled.form`
     padding-top: 0.5rem;
     padding-bottom: 1rem;
     padding: 0px 30px 0px 30px;
+    label{
+      color: #bebebe;
+    }
     select{
       border: 1px solid #1ED760;
     }
@@ -153,12 +156,12 @@ export const SectionHome = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: var(--background);
   p{
     margin: 0;
     font-size: .8rem;
     padding: 0;
-    color: var(--links);
+    color: #bebebe;
   }
   .info {
     text-align: center;
@@ -171,7 +174,7 @@ export const SectionHome = styled.section`
 `
 const HeaderHome = styled.header`
     min-height: 13vh;
-    background-color: #f2f2f2;
+    background-color: var(--background);
     h1 {
         color: var(--links);
     }

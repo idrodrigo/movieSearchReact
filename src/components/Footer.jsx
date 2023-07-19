@@ -7,7 +7,7 @@ export default function Footer () {
     <>
       <Foooter>
         <div className='icons-redes'>
-          <IconContext.Provider value={{ color: '#00358A', size: '2em' }}>
+          <IconContext.Provider value={{ color: '#1ED760', size: '2em' }}>
             <IconAnchor >
             <a href='https://www.linkedin.com/in/idrodrigo/' target='_blank' rel='noreferrer'>
               <BsLinkedin />
@@ -43,8 +43,7 @@ export default function Footer () {
 
 const Foooter = styled.footer`
   min-height: 15vh;
-  background-color: var(--background-body);
-  border-top: 2px solid #E2E8F0;
+  background-color: var(--background-dark);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -54,8 +53,8 @@ const Foooter = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
   }
 
   .end {
@@ -75,17 +74,17 @@ const Foooter = styled.footer`
       }
     }
     .links {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 1rem;
-        p{
-          margin: 0;
-        }
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1rem;
+      p{
+        margin: 0;
       }
+    }
     @media(min-width: 768px){
       margin-left: 15%;
-    margin-right: 15%;
+      margin-right: 15%;
       display: flex;
       align-items: center;
       justify-content: start;
@@ -116,7 +115,7 @@ export const IconAnchor = styled.div`
   height: ${(props) => props.height || '2em'};
   width: ${props => props.width || '2em'};
   border: 1px solid #E2E8F0;
-  border-color: ${props => props.$bcolor || '#E2E8F0'};
+  border-color: ${props => props.$bcolor || '#181818'};
   margin-left: 1rem;
   margin-right: 1rem;
   border-radius: ${props => props.$bradio || '100%'};
@@ -125,9 +124,10 @@ export const IconAnchor = styled.div`
   justify-content: center;
   align-items: center;
   border: ${props => props.$borderpx || ''};
+  background-color:${props => props.$bgcolor || '#181818'};
 
 &:hover {
-  background-color: ${props => props.$bghover || 'white'};
+  background-color: ${props => props.$bghover || '#303030'};
   transition: all 0.4s ease-in-out;
 }
 }

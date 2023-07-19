@@ -82,7 +82,6 @@ const UlMovies = styled.ul`
   justify-content: center;
   gap: .5rem;
   align-items: last baseline;
-  border: 2px solid #f2f2f2;
   @media(min-width: 768px){
     gap: 1.5rem;
     padding-left: 2rem;
@@ -92,12 +91,11 @@ const UlMovies = styled.ul`
 const LiMovie = styled.li`
   position: relative;
   transition: all 0.6s ease-in-out;
-  color: black;
   padding: 0.3rem;
   padding-bottom: 0.5rem;
   cursor: default;
-  border: 2px solid #f2f2f2;
-  border-radius: 0.8rem;
+  background-color: #252525;
+  border-radius: .5rem;
   max-width: 180px;
   max-height: 425px;
   overflow: hidden;
@@ -134,15 +132,18 @@ const LiMovie = styled.li`
   &:hover {
     position: relative;
     transition: all 1s ease-in-out;
+    background-color: #181818;
+
   }
 
   h3 {
-    color: var(--links);
+    color: white;
     top: 80%;
     left: 0;
   }
 
   p {
+    color: #bebebe;
     top: 87%;
     left: 0%
   }

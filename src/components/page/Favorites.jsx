@@ -13,6 +13,7 @@ const ListOfMovies = lazy(() => import('../ListOfMovies.jsx'))
 function NoFavorites () {
   return (
     <div className='noFavorites'>
+      <FavIcon className='icon-fav' />
       <p> Dobble click on a movie to add to favorites </p>
     </div>
   )
@@ -31,15 +32,20 @@ export default function Favorites () {
   return (
     <>
       <FavSection>
-        <FavIcon className='icon-fav' />
-        {hasMovies ? <ListOfMovies movies={favorites} /> : <NoFavorites />}
-        <IconContext.Provider value={{ color: '#00358A', size: '1.7em' }}>
-          <IconAnchor width={'5em'} height={'3em'} $bradio={'10px'}>
-            <button onClick={handleClick}>
-              <BsTrashFill />
-            </button>
-          </IconAnchor>
-        </IconContext.Provider>
+
+        {hasMovies
+          ? <>
+          <ListOfMovies movies={favorites} />
+            <IconAnchor width={'5em'} height={'3em'} $bradio={'10px'}>
+              <button onClick={handleClick}>
+                <IconContext.Provider value={{ color: '#1ED760', size: '1.7em' }}>
+                  <BsTrashFill />
+                </IconContext.Provider>
+              </button>
+            </IconAnchor>
+            </>
+          : <NoFavorites />}
+
       </FavSection>
     </>
   )
@@ -47,6 +53,10 @@ export default function Favorites () {
 
 const FavSection = styled(SectionHome)`
   min-height: 77vh;
+  .noFavorites{
+    text-align: center;
+  }
+
   button {
   padding: 0;
   margin: 0;

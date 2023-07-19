@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: var(--background);
 }
 
 .movie-card {
@@ -75,12 +76,12 @@
         & a {
             margin: 0;
             text-decoration: none;
-            color: var(--links);
+            color: #1ED760;
         }
 
         & a:hover {
             color: white;
-            transition: all 0.6s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
 
         display: flex;

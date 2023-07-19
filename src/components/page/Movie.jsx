@@ -32,7 +32,7 @@ export default function Movie () {
     <>
       {movie
         ? <section className='main-movie'>
-          <IconAnchor $borderpx={'0'} $bghover={'#f2f2f2'}>
+          <IconAnchor $borderpx={'0'} $bgcolor={'#303030'}>
             <NavLink className='return' to={'/'}>
               <IconContext.Provider value={{ color: 'var(--links)', size: '2.5em' }}>
                 <BsCaretLeftFill />
@@ -87,8 +87,9 @@ export default function Movie () {
                   width={'6em'}
                   height={'1.8em'}
                   $bradio={'5px'}
-                  $bcolor={'#00358A'}
-                  $bghover={'#00358A'}>
+                  $bcolor={'#1ED760'}
+                  $bgcolor={'#303030'}
+                  $bghover={'#1ED760'}>
                   <a href={`http://www.imdb.com/title/${movie.id}/`} target="_blank" rel="noopener noreferrer">
                     IMDB
                   </a>
@@ -98,8 +99,9 @@ export default function Movie () {
                   width={'11em'}
                   height={'1.8em'}
                   $bradio={'5px'}
-                  $bcolor={'#00358A'}
-                  $bghover={'#00358A'}>
+                  $bcolor={'#1ED760'}
+                  $bgcolor={'#303030'}
+                  $bghover={'#1ED760'}>
                   <a href={movie?.tomato === 'N/A' ? '' : movie.tomato} target="_blank" rel="noopener noreferrer">
                     Rotten Tomatoes
                   </a>

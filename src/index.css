@@ -2,8 +2,9 @@
   --highlight-border-radius: 7px;
   --border-radius: 11px;
   --yellow-highlight: #fffab7;
-  --links: #00358A;
-  --background-body: #fff;
+  --links: #1ED760;
+  --background: #303030;
+  --background-dark: #181818;
   --background-main: #f1f1f1;
   --background-inputs: #fcfcfc;
   --text: #1c1d1e;
@@ -46,7 +47,6 @@ html {
 
 body {
   grid-template-columns: 1fr min(120rem, 90%) 1fr;
-  background-color: #1ED760;
 }
 
 address {

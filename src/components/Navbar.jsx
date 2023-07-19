@@ -10,6 +10,7 @@ export default function Navbar () {
   const handleClick = () => {
     setClicked(!clicked)
   }
+
   return (
     <>
 
@@ -46,8 +47,7 @@ export default function Navbar () {
 }
 
 const NavContainer = styled.nav`
-  background-color: var(--background-body);
-  border-bottom: 2px solid #E2E8F0;
+  background-color: var(--background-dark);
   width: 100vw;
   height: 8vh;
   padding: .4rem;
@@ -100,7 +100,7 @@ const NavContainer = styled.nav`
       margin: 0;
       display: block;
       a{
-        color: black;
+        color: #1ED760;
         display: inline;
         margin-right: 2.5rem;
         
@@ -123,7 +123,7 @@ const NavContainer = styled.nav`
     a{
       margin-right: 0;
       margin-top: 1rem;
-      color: black;
+      color: #1ED760;
     }
     @media(min-width: 768px){
       position: initial;
@@ -149,8 +149,8 @@ const NavContainer = styled.nav`
 `
 const BgDiv = styled.div`
   z-index: -1;
-  background-color: var(--background-body);
-  border-bottom: 2px solid #E2E8F0;
+  background-color: #181818;
+  /* border-bottom: 2px solid #E2E8F0; */
   position: absolute;
   top: -14vh;
   left: 0;
