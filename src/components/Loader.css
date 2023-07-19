@@ -1,6 +1,6 @@
 .loader {
     min-height: 77vh;
-    background-color: #f2f2f2;
+    background-color: var(--background);
     display: flex;
     justify-content: center;
     align-items: center;

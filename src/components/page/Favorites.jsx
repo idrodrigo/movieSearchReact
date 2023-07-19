@@ -52,7 +52,7 @@ export default function Favorites () {
 }
 
 const FavSection = styled(SectionHome)`
-  min-height: 77vh;
+  min-height: 76vh;
   .noFavorites{
     text-align: center;
   }

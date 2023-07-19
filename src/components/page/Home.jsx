@@ -150,7 +150,7 @@ const FormSearch = styled.form`
     }
 `
 export const SectionHome = styled.section`
-  min-height: 65vh;
+  min-height: 63vh;
   display: block;
   display: flex;
   flex-direction: column;

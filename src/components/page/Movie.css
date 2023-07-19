@@ -1,5 +1,5 @@
 .main-movie {
-    min-height: 78vh;
+    min-height: 76vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
